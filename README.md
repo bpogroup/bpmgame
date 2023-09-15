@@ -1,1 +1,1 @@
-# bpmgame
+# BPM Game

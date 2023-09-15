@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd">
+
+	<import resource="applicationContext.xml" /> 
+	
+	<context:annotation-config />
+	<mvc:annotation-driven />
+
+	<context:component-scan base-package="nl.tue.bpmgame.bpmgamegui.controllers" />
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<mvc:resources mapping="/assets/**" location="/assets/" />
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="3145728" /> <!-- 3MB -->
+		<property name="maxInMemorySize" value="1048576" /> <!-- 1MB -->
+	</bean>
+
+	<bean id="userDao" class="nl.tue.bpmgame.bpmgamegui.dao.UserDAOImpl" />
+	<bean id="roleDao" class="nl.tue.bpmgame.bpmgamegui.dao.RoleDAOImpl" />
+	<bean id="gameGroupDao" class="nl.tue.bpmgame.bpmgamegui.dao.GameGroupDAOImpl" />
+	<bean id="modelDao" class="nl.tue.bpmgame.bpmgamegui.dao.ModelDAOImpl" />
+	<bean id="persistentLogEventDao" class="nl.tue.bpmgame.bpmgamegui.dao.PersistentLogEventDAOImpl" />
+	<bean id="persistentKPIDao" class="nl.tue.bpmgame.bpmgamegui.dao.PersistentKPIDAOImpl" />
+	
+	<bean id="constantProviderService" class="nl.tue.bpmgame.bpmgamegui.services.ConstantProviderService" />
+	<bean id="emailService" class="nl.tue.bpmgame.bpmgamegui.services.EmailService" />	
+	  			
+	<bean id="annotationSessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="nl.tue.bpmgame.dataaccess.model" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.default_schema">bpmgame</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<!-- <prop key="hibernate.hbm2ddl.import_files">initial_data.sql</prop> -->
+				<!-- <prop key="hibernate.hbm2ddl.auto">update</prop>  -->		
+			</props>
+		</property>
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="annotationSessionFactory" />
+	</bean>
+
+	<import resource="mailSender.xml" /> 
+
+</beans>

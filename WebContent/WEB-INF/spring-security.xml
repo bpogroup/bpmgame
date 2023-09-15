@@ -1,0 +1,45 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security-4.2.xsd">
+
+	<beans:import resource="applicationContext.xml" /> 
+ 
+	<http auto-config="true">
+
+		<intercept-url pattern="/user/changepassword" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/group/manage" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/group/create" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/group/leave" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/group/add" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/model/upload" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/model/logdownload" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/model/stats" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/model/cases" access="hasRole('ROLE_USER')" />
+		
+		<form-login 
+		    login-processing-url="/user/j_spring_security_check"
+		    login-page="/user/signin" 
+		    default-target-url="/" 
+			authentication-failure-handler-ref="userNameCachingAuthenticationFailureHandler" 
+			username-parameter="email"
+			password-parameter="password" />
+		<logout
+			logout-url="/j_spring_security_logout" 
+			logout-success-url="/user/signout" />
+		<csrf/>
+
+	</http>
+
+ 	<authentication-manager>
+		<authentication-provider>
+			<password-encoder hash="bcrypt" />
+			<jdbc-user-service data-source-ref="dataSource"
+				users-by-username-query="select email,password,confirmed from User where email=?"
+				authorities-by-username-query="select email,Role.name from User,Role,User_Role where User.id=User_Role.user_id AND Role.id=User_Role.role_id AND email=?" />
+		</authentication-provider>
+	</authentication-manager>
+</beans:beans>
