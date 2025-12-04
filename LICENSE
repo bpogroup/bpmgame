@@ -1,21 +1,56 @@
-MIT License
 
-Copyright (c) 2023 Remco Dijkman
+MPL 2.0 with Additional Terms
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Version: 1.0
+Effective Date: 2025-12-04
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. Base License
+This Software is licensed under the Mozilla Public License, version 2.0 (“MPL 2.0”).
+You may obtain a copy of the MPL 2.0 at: https://www.mozilla.org/MPL/2.0/
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Except as modified by the Additional Terms herein, the MPL 2.0 governs the use, reproduction, and distribution of the Software, including its Source Code Form and Executable Form. Capitalized terms not defined here have the meanings given in the MPL 2.0.
+
+2. Additional Terms (MPL 2.0 §3.0)
+The following Additional Terms apply to the Software, and are incorporated pursuant to Section 3.0 of the MPL 2.0. In the event of any conflict, the Additional Terms control solely with respect to the matters they address.
+
+2.1 Mandatory Public Attribution (Masthead/Display)
+(a) If You (as defined in MPL 2.0) deploy, host, provide, or otherwise make the Software (or any Modifications or Larger Works that include any files of the Software) publicly accessible to end users (a “Public Instance”), You must display clear attribution to the original author:
+
+    “Remco Dijkman”
+
+(b) Placement. The attribution must appear prominently on the website’s masthead (top navigation/header area) or footer on all public-facing pages of the Public Instance. It must be plainly visible without user interaction (e.g., without hovering, expanding, or scrolling beyond standard viewport for the page’s main content).
+
+(c) Presentation. The attribution must be in a font size and color that is reasonably readable and not obscured or diminished by surrounding elements. “Prominently” means that an ordinary user can readily see the attribution within the masthead or footer as rendered on common desktop and mobile browsers.
+
+(d) Allowed Variations. You may localize the text (language), and may style the attribution to match the site’s design, provided it remains clear, visible, and not misleading. You may include additional credits (e.g., Your company name) provided the above author attribution remains present.
+
+(e) Non-Web Contexts. If the Software is used without a web UI (e.g., solely via an API, CLI, or embedded service), the attribution must appear in publicly accessible documentation, API landing pages, or a default “About” endpoint/command output that is reasonably reachable by users of the Public Instance.
+
+(f) Configuration. You may provide configuration to place the attribution in the masthead or footer, but You may not remove or suppress it for Public Instances.
+
+(g) Trademark. This attribution does not grant any rights in the name “Remco Dijkman” as a trademark. Use of any trademarks is subject to applicable trademark law.
+
+2.2 Network Use Source Availability (SaaS Clause)
+(a) If You operate a Public Instance (as defined above), and such Public Instance uses any Modifications (as defined in MPL 2.0) to the Software, then You must make the Source Code Form of those Modifications reasonably and publicly available—at no charge—to all users of the Public Instance, under the MPL 2.0 plus these Additional Terms.
+
+(b) Reasonable Availability. “Reasonably and publicly available” means providing a stable, publicly accessible URL that (i) links to a repository or downloadable archive containing the complete Source Code Form of the Modifications You deploy, and (ii) includes build and deployment instructions sufficient for a technically competent user to compile and run the Modified files in a development environment.
+
+(c) Scope. This clause applies only to Modifications to files that are part of the Software or files that are derivative of such files. It does not require You to open source Your entire Larger Work or proprietary components that merely interface with the Software without creating Modifications to its files.
+
+(d) Timing. You must update the publicly accessible source within a reasonable time after deploying the Modifications (e.g., within 30 days of first public availability of the Public Instance with those Modifications).
+
+(e) License Continuity. Modifications made available under this clause must be licensed under the MPL 2.0 and these Additional Terms. You may also dual-license Modifications under additional terms provided those terms are not incompatible with MPL 2.0 and these Additional Terms.
+
+2.3 No Further Restrictions
+You may not impose any additional restrictions on the exercise of rights granted under the MPL 2.0, except as expressly permitted by the MPL 2.0 §3.0 and as set out in these Additional Terms.
+
+3. Patent, Disclaimer, and Limitation of Liability
+Patent grants, disclaimers of warranty, and limitations of liability are governed by the MPL 2.0. For clarity, no additional patent rights beyond those provided by the MPL 2.0 are granted here.
+
+4. Entire License
+This document, together with the MPL 2.0, constitutes the entire license agreement for the Software between Licensor and You with respect to the subject matter herein.
+
+5. Contact
+For attribution placement questions or compliance inquiries, contact: r.m.dijkman@tue.nl
+
+END OF LICENSE
